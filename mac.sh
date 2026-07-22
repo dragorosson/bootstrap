@@ -16,6 +16,10 @@
 #
 set -euo pipefail
 
+# Reclaim the terminal so password prompts and `gh auth login` below
+# behave normally.
+exec < /dev/tty
+
 SETUP_REPO_SLUG="dragorosson/setup-mac"
 CLONE_DIR="$HOME/workspace/${SETUP_REPO_SLUG}"
 
@@ -25,7 +29,7 @@ log() {
 
 if ! command -v brew >/dev/null 2>&1; then
   log "Installing Homebrew..."
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 if [[ -x /opt/homebrew/bin/brew ]]; then
