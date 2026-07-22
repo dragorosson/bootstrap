@@ -12,13 +12,9 @@
 # specific to how the machine actually gets set up lives in setup-mac.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/dragorosson/bootstrap/main/mac.sh | zsh
+#   zsh -c "$(curl -fsSL https://raw.githubusercontent.com/dragorosson/bootstrap/main/mac.sh)"
 #
 set -euo pipefail
-
-# Reclaim the terminal so password prompts and `gh auth login` below
-# behave normally.
-exec < /dev/tty
 
 SETUP_REPO_SLUG="dragorosson/setup-mac"
 CLONE_DIR="$HOME/workspace/${SETUP_REPO_SLUG}"
