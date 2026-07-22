@@ -6,7 +6,7 @@
 #   2. Install git and gh
 #   3. Run `gh auth login`
 #   4. Clone dragorosson/setup-mac
-#   5. Exec setup-mac's own init.sh
+#   5. Exec setup-mac's own run.sh
 #
 # This script (dragorosson/bootstrap) stays intentionally thin. Everything
 # specific to how the machine actually gets set up lives in setup-mac.
@@ -56,4 +56,4 @@ fi
 
 log "Handing off to setup-mac..."
 cd "$CLONE_DIR"
-exec ./init.sh
+exec ./run.sh
