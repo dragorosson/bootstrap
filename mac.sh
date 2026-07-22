@@ -23,7 +23,7 @@ log() {
   print -P "%F{blue}==>%f $1"
 }
 
-if ! command -v brew >/dev/null 2>&1; then
+if [[ ! -x /opt/homebrew/bin/brew && ! -x /usr/local/bin/brew ]]; then
   log "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
