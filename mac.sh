@@ -26,6 +26,8 @@ log() {
 if [[ ! -x /opt/homebrew/bin/brew && ! -x /usr/local/bin/brew ]]; then
   log "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  log "Homebrew already installed, skipping."
 fi
 
 if [[ -x /opt/homebrew/bin/brew ]]; then
@@ -40,6 +42,8 @@ brew install git gh
 if ! gh auth status >/dev/null 2>&1; then
   log "Log into GitHub (this opens a browser)..."
   gh auth login --hostname github.com --git-protocol https --web
+else
+  log "Already logged into GitHub, skipping."
 fi
 
 mkdir -p "${CLONE_DIR:h}"
