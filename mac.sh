@@ -39,7 +39,7 @@ brew install git gh
 
 if ! gh auth status >/dev/null 2>&1; then
   log "Log into GitHub (this opens a browser)..."
-  gh auth login
+  gh auth login --hostname github.com --git-protocol https --web
 fi
 
 mkdir -p "${CLONE_DIR:h}"
